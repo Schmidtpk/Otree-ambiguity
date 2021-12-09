@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Testfragen: Punkte und Geldgewinn
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Stellen Sie sich folgenden Ausgang des Experiments vor:
+        Es wurde eine Frage ausgewählt in der Sie 10 Euro gewinnen können und in der Sie 35 Punkte erspielt haben.
+    </p>
+
+    <p>
+        Stellen Sie sich weiterhin vor, dass Sie am Ende des Experiments die Zahl 61 aus der Box ziehen.
+    </p>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}
+

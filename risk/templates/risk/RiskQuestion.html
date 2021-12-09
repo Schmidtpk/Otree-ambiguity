@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Zahl ziehen um Geld
+{% endblock %}
+
+{% block content %}
+
+<p>
+    Zur Erinnerung: <br>
+    In der Box befinden sich alle Zahlen von 1 bis 100 genau einmal.
+</p>
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}

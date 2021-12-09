@@ -1,0 +1,326 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <div id="titleText">
+        {{ player.fun_title }}
+    </div>
+{% endblock %}
+
+{% block content %}
+
+
+    <p>
+        Sie können in dieser Runde <b>{{ player.tickets_prize_text }}</b> gewinnen.
+    </p>
+    <p>
+        Sie haben 100 Punkte, die Sie in jeder Reihe zwischen den zwei möglichen Ereignissen verteilen müssen.
+        Es müssen in jeder Reihe alle 100 Punkte zwischen den zwei Möglichkeiten verteilt werden.
+        Wird eine Reihe am Ende des Experiments ausgewählt, erhöht jeder dort gewonnene Punkt Ihre Gewinnchance um 1%.
+    </p>
+
+    <p>
+        Die Reihen unterscheiden sich hinsichtlich der Quote. In jeder Reihe erhalten Sie also unterschiedliche
+        Anteile der gesetzten Punkte zurück.
+    </p>
+
+    <hr>
+
+    <div class="upperBox">
+        <div id="leftText_short">
+
+            <b>
+               <center> {{ player.etext_short }} </center>
+            </b>
+
+        </div>
+        <div id = "middleText_short">
+         <b>
+               <center> Quote </center>
+         </b>
+        </div>
+        <div id="rightText_short">
+
+            <b>
+                <center> {{ player.ctext_short }} </center>
+            </b>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+<hr>
+
+<div class="divBox">
+    <div id="leftText">
+        <p> Falls <b>{{ player.tickets_text0 }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        {{ form.valt0.errors }}
+        <div class="fieldWrapper">
+                {{ form.valt0 }}
+        </div>
+    </div>
+    <div id="middleText">
+    <center><b> 90 : 10 </b></center>
+    </div>
+    <div id="rightText">
+        {{ form.valt0b.errors }}
+        <p> Falls <b>{{ player.tickets_text0b }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+            {{ form.valt0b }}
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr>
+
+<div class="divBox">
+    <div id="leftText">
+        {{ form.valt1.errors }}
+        <p> Falls <b>{{ player.tickets_text1 }} </b>
+        Wieviele der 100 Tickets möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+                {{ form.valt1 }}
+        </div>
+    </div>
+    <div id="middleText">
+    <center><b> 80 : 20 </b></center>
+    </div>
+    <div id="rightText">
+        {{ form.valt1b.errors }}
+        <p> Falls <b>{{ player.tickets_text1b }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+            {{ form.valt1b }}
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr>
+
+<div class="divBox">
+    <div id="leftText">
+        {{ form.valt2.errors }}
+        <p> Falls <b>{{ player.tickets_text2 }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+                {{ form.valt2 }}
+        </div>
+    </div>
+    <div id="middleText">
+    <center><b> 70 : 30 </b></center>
+    </div>
+    <div id="rightText">
+        {{ form.valt2b.errors }}
+        <p> Falls <b>{{ player.tickets_text2b }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+            {{ form.valt2b }}
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr>
+
+<div class="divBox">
+    <div id="leftText">
+        {{ form.valt3.errors }}
+        <p> Falls <b>{{ player.tickets_text3 }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+                {{ form.valt3 }}
+        </div>
+    </div>
+    <div id="middleText">
+    <center><b> 60 : 40 </b></center>
+    </div>
+    <div id="rightText">
+        {{ form.valt3b.errors }}
+        <p> Falls <b>{{ player.tickets_text3b }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+            {{ form.valt3b }}
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr>
+
+<div class="divBox">
+    <div id="leftText">
+        {{ form.valt4.errors }}
+        <p> Falls <b>{{ player.tickets_text4 }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+                {{ form.valt4 }}
+        </div>
+    </div>
+    <div id="middleText">
+    <center><b> 50 : 50 </b></center>
+    </div>
+    <div id="rightText">
+        {{ form.valt4b.errors }}
+        <p> Falls <b>{{ player.tickets_text4b }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+            {{ form.valt4b }}
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr>
+
+<div class="divBox">
+    <div id="leftText">
+        {{ form.valt5.errors }}
+        <p> Falls <b>{{ player.tickets_text5 }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+                {{ form.valt5 }}
+        </div>
+    </div>
+    <div id="middleText">
+    <center><b> 40 : 60 </b></center>
+    </div>
+    <div id="rightText">
+        {{ form.valt5b.errors }}
+        <p> Falls <b>{{ player.tickets_text5b }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+            {{ form.valt5b }}
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr>
+
+<div class="divBox">
+    <div id="leftText">
+        {{ form.valt6.errors }}
+        <p> Falls <b>{{ player.tickets_text6 }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+                {{ form.valt6 }}
+        </div>
+    </div>
+    <div id="middleText">
+    <center><b> 30 : 70 </b></center>
+    </div>
+    <div id="rightText">
+        {{ form.valt6b.errors }}
+        <p> Falls <b>{{ player.tickets_text6b }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+            {{ form.valt6b }}
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr>
+
+<div class="divBox">
+    <div id="leftText">
+        {{ form.valt7.errors }}
+        <p> Falls <b>{{ player.tickets_text7 }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+                {{ form.valt7 }}
+        </div>
+    </div>
+    <div id="middleText">
+    <center><b> 20 : 80 </b></center>
+    </div>
+    <div id="rightText">
+        {{ form.valt7b.errors }}
+        <p> Falls <b>{{ player.tickets_text7b }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+            {{ form.valt7b }}
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<hr>
+
+<div class="divBox">
+    <div id="leftText">
+        {{ form.valt8.errors }}
+        <p> Falls <b>{{ player.tickets_text8 }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+                {{ form.valt8 }}
+        </div>
+    </div>
+    <div id="middleText">
+    <center><b> 10 : 90 </b></center>
+    </div>
+    <div id="rightText">
+        {{ form.valt8b.errors }}
+        <p> Falls <b>{{ player.tickets_text8b }} </b>
+        Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+        <div class="fieldWrapper">
+            {{ form.valt8b }}
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+    {% next_button %}
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+<style>
+    #titleText{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .fieldWrapper{
+    margin-left: 100px;
+    }
+     .divBox{
+        margin-top: 40px;
+    }
+     .upperBox{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .clear{
+        clear: both;
+    }
+    #leftText_short{
+        display:inline-block;
+        width: 40%;
+        float: left;
+    }
+    #rightText_short{
+        display:inline-block;
+        width: 40%;
+        float: right;
+    }
+    #middleText_short{
+        width: 20%;
+        display:inline-block;
+    }
+    #leftText{
+        display:inline-block;
+        width: 40%;
+        float: left;
+    }
+    #middleText{
+    display:inline-block;
+    bottom: 50%;
+    width: 20%;
+    }
+    #rightText{
+        display:inline-block;
+        width: 40%;
+        float: right;
+    }
+</style>
+{% endblock %}
+
+

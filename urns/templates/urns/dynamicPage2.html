@@ -1,0 +1,94 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <div id="titleText">
+        {{ player.fun_title }} (Frage {{ player.num_questions_asked }} von {{Constants.dynamic_question_number}})
+    </div>
+{% endblock %}
+
+{% block content %}
+   <img src="{% static image_path %}"  class="center"/>
+
+    <p>
+        Zur Erinnerung:<br>
+
+        {{player.fun_explanation}}
+    </p>
+
+
+        <table class="table">
+                <tr>
+                    <td>
+                        {{player.etext_short}}: <img src="{% static image_pathE %}" style="max-height:50%; max-width:50%" />
+                    </td>
+                    <td>
+                        {{player.ctext_short}}: <img src="{% static image_pathC %}" style="max-height:50%; max-width:50%" />
+                    </td>
+                </tr>
+        </table>
+
+        <p>
+            Was bevorzugen Sie?
+        </p>
+
+        {% formfield player.val_second %}
+
+    <button class="otree-btn-next btn btn-primary next-button otree-next-button"> Entscheidung speichern und weiter </button>
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+    <style>
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 8cm;
+        }
+
+        .table{
+            text-align:center
+        }
+
+        #titleText{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .otree-timer {
+                display: none;
+            }
+
+    </style>
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script>
+
+        $(function () {
+            // Hide the timer until only 'minutes' minutes are left
+            var minutes = {{ Constants.minutes }};
+            $('.otree-timer__time-left').on('update.countdown', function (event) {
+                diff = event.offset.totalSeconds;
+                thediv = $('div.otree-timer');
+                if (diff < 15 * minutes) {
+                    thediv.show()
+                }
+            });
+        });
+
+
+
+    </script>
+
+
+
+{% endblock %}

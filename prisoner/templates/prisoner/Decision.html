@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Ihre Wahl
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'global/matrix.css' %}" />
+
+    <style>
+        .highlight-row-on-hover:hover td {
+            background-color: #fcf8e3;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="form-group required">
+        <table class="table table-bordered text-center" style="width: auto; margin: auto">
+
+
+            <tr class="highlight-row-on-hover">
+                <td><button name="decision" value="Cooperate" class="btn btn-primary btn-large">Ich wähle Zusammenarbeit!</button></td>
+
+            </tr>
+            <tr class="highlight-row-on-hover">
+                <td><button name="decision" value="Defect" class="btn btn-primary btn-large">Ich wähle Alleingang!</button></td>
+            </tr>
+        </table>
+    </div>
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}

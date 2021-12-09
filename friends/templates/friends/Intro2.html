@@ -1,0 +1,48 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Die Frage
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Wir betrachten ob ein roter oder blauer Ball gezogen wird.
+        Sie können in dieser Runde 2€ gewinnen.
+        Sie müssen eine von drei Möglichkeiten wählen:
+        <ol>
+            <li> Sie erhalten 25 Punkte <b>sicher</b>, egal welche Farbe gezogen wird</li>
+            <li> Sie erhalten 50 Punkte, nur <b>falls ein roter Ball</b> gezogen wird</li>
+            <li> Sie erhalten 50 Punkte, nur <b>falls ein blauer Ball</b> gezogen wird</li>
+        </ol>
+    </p>
+    <p>
+        Nachdem Sie ihre Wahl getroffen haben, werden wir den Ball ziehen.
+    </p>
+    <p>
+        Wenn Sie <b> Option 1 </b> gewählt haben, erhalten Sie sicher 25 Punkte, egal was für ein Ball gezogen wird.
+        Das heißt Sie haben eine <b>25% Chance auf die 2 €</b>.
+        Diese Option ist also <b>unabhängig von der Unsicherheit der Ballfarbe</b>.
+    </p>
+    <p>
+        Wenn Sie <b> Option 2 </b> gewählt haben, und ein roter Ball gezogen wird,
+        erhalten Sie 50 Punkte. In diesem Fall haben Sie also eine <b>50% Chance auf die 2 €</b>.
+        Sollte ein blauer Ball gezogen werden, erhalten Sie keine Punkte. In diesem Fall haben Sie also <b>keine
+        Chance auf die 2 €</b>.
+    </p>
+    <p>
+        Wenn sie <b> Option 3 </b> gewählt haben, und ein blauer Ball gezogen wird,
+        erhalten Sie 50 Punkte. In diesem Fall haben Sie also eine <b>50% Chance auf die 2 €</b>.
+        Sollte aber ein roter Ball gezogen werden, erhalten Sie keine Punkte. In diesem Fall haben Sie also <b>keine
+        Chance auf die 2 €</b>.
+    </p>
+
+    <hr>
+    <p>
+        Es gibt keine richtigen oder falschen Antworten, wir möchten ihre persönliche Einschätzung der Unsicherheit
+        erforschen.
+    </p>
+    {% next_button %}
+
+{% endblock %}

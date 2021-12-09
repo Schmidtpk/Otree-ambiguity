@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% load staticfiles %}
+
+{% block title %}
+Lotterien
+{% endblock %}
+
+{% block content %}
+
+<p>
+    Bedenken Sie, dass, falls diese Frage zur Auszahlung ausgewählt wird,
+    ihre Wahl am Ende gespielt und der Gewinn an Sie ausgezahlt wird.
+
+    {%  formfield player.amb_aversion%}
+</p>
+
+    {% next_button %}
+
+{% endblock %}

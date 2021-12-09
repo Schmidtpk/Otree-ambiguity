@@ -1,0 +1,45 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <div id="titleText">
+        Das Experiment -  Runde {{player.round_number}} von {{ Constants.num_rounds }}:
+    </div>
+{% endblock %}
+
+{% block content %}
+<p>
+    {% if player.round_number == 1 %}
+        Die ersten fünf Ziehungen aus der Urne hatten die folgenden Farben:
+
+    <b> {{ player.info1 }} </b>
+
+    {% else %}
+       Zur Erinnerung: Die ersten fünf Ziehungen aus der Urne hatten die folgenden Farben:
+    <b> {{ player.info1 }} </b>
+    {% endif %}
+</p>
+
+<p>
+    {% if player.round_number == 2 %}
+        Die folgenden fünf Ziehungen aus der Urne hatten die folgenden Farben:
+    <b> {{ player.info2 }} </b>
+    {% endif %}
+</p>
+
+
+    {% next_button %}
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+<style>
+    #titleText{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,304 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Testfragen: Eine Frage
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Unten sehen Sie eine weitere Beispielfrage. Diesmal ist das unsichere Ereignis ob ein gepunkteter Ball gezogen wird oder ein einfarbiger.
+    </p>
+
+    <p>
+        Sie können die Gewinnzahlen ohne Veränderung zwischen den zwei möglichen Resultaten verschieben.
+    </p>
+
+
+        <table class="table">
+        <tr>
+            <td>
+                <img src="{% static image_pathE %}" style="max-height:50%; max-width:50%" />
+            </td>
+            <td>
+
+            </td>
+            <td>
+                <img src="{% static image_pathC %}" style="max-height:50%; max-width:50%" />
+            </td>
+            </td>
+        </tr>
+            <tr>
+            <td>
+                    Falls
+                    <b>
+                        {{ player.fun_etext }}
+                    </b>
+                     ...
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+                    Falls
+                    <b>
+                        {{ player.fun_ctext }}
+                    </b>
+                      ...
+
+            </td>
+        </tr>
+        <tr>
+                <td><div id="val01" class="valBox_left"> - </div></td>
+            <td>  <div class="slider_table"> {% formfield player.val_slider_dyn %} </div> </td>
+                <td><div id="val02" class="valBox_right"> - </div><div class="clear"></div></td>
+        </tr>
+        <tr>
+
+            <td colspan="3">    <div id="val_mix"> Bewegen Sie den Slider auf dem grauen Streifen um die möglichen Auszahlungen zu erkunden. </div> </td>
+
+        </tr>
+        </table>
+
+    {{ form.checkslider.errors }}
+
+    <hr>
+
+        <p>
+            <b>Wenn Sie den Slider nach links oder rechts bewegen</b>
+            hängt ihre Auszahlung davon ab ob ein gepunkteter oder einfarbiger Ball gezogen wird. Sie wissen allerdings nicht wieviele gepunktete Bälle in der Urne sind.
+            Falls Sie ihre Auszahlung nicht von dieser unbekannten Größe abhängig machen möchten, können Sie eine mittlere Position wählen.
+        </p>
+
+    <p>
+        <b>Bewegen Sie den Slider nun in die Mitte.</b>
+        Stellen Sie den Slider so ein, dass Sie 10 Euro erhalten, falls Sie eine Zahl von <b> 1 bis 50 ziehen, egal was für ein Ball gezogen wird</b>. Sie setzen weder auf auf den blauen noch auf den roten Ball.
+        Ihre Auszahlung ist <b> unabhängig vom gezogenen Ball </b>. Sie haben immer die Möglichkeit den Slider so einzustellen
+    </p>
+
+    <p>
+        Drücken Sie anschließend auf weiter.
+    </p>
+
+
+    {% next_button %}
+
+    <input type="hidden" name="checkslider" value="" id="id_checkslider"/>
+
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+    <style>
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;
+        }
+
+        {% if player.elicit_type == "slider" %}
+            .otree-btn-next {
+                    display: none;
+                }
+        {% endif %}
+
+        #titleText{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .otree-timer {
+                display: none;
+            }
+
+        #titleText{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fieldWrapper{
+        margin-left: 100px;
+        }
+         .divBox{
+            margin-top: 40px;
+        }
+         .upperBox{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .clear{
+            clear: both;
+        }
+        #leftText_short{
+            display:inline-block;
+            width: 40%;
+            float: left;
+        }
+        #rightText_short{
+            display:inline-block;
+            width: 40%;
+            float: right;
+        }
+        #leftText{
+            display:inline-block;
+            width: 40%;
+            float: left;
+        }
+        #rightText{
+            display:inline-block;
+            width: 40%;
+            float: right;
+        }
+
+
+        #leftText_slider{
+            width: 25%;
+            float: left;
+        }
+        #rightText_slider{
+            width: 25%;
+            float: right;
+        }
+
+
+        #wrap_slider{
+        float: left;
+        position: relative;
+        left: 50%;
+        }
+
+        #val01{
+            margin: auto;
+        }
+
+        #val02{
+           margin: auto;
+        }
+
+        .table{
+            text-align:center
+        }
+
+        td:nth-child(1) {
+          width: 25%;
+          }
+        td:nth-child(2) {
+            width: 50%;
+        }
+        td:nth-child(3) {
+          width: 25%;
+         }
+
+
+        .slider_table{
+            width: 100%;
+            position: relative;
+            left: 10%;
+        }
+
+        #sliderBox{
+            float: left;
+            width: 70%;
+            margin: 5px;
+        }
+        .clear{
+            clear: both;
+        }
+        input[type="range"].form-control::-webkit-slider-thumb {
+              visibility: hidden;
+        }
+
+        input[type="range"].form-control::-moz-range-thumb {
+            visibility: hidden;
+        }
+        input[type="range"].form-control::-ms-thumb {
+            visibility: hidden;
+        }
+        input[type="range"].active_slider::-webkit-slider-thumb {
+            visibility: visible;
+        }
+        input[type="range"].active_slider::-moz-range-thumb {
+            visibility: visible;
+        }
+        input[type="range"].active_slider::-ms-thumb {
+            visibility: visible;
+
+
+        }
+    </style>
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script>
+
+
+    //Initializing slider rates
+    var rate0 = {{q_now}};
+    var rate0c = {{q_not_now}};
+
+    var prize = "10 Euro";
+
+
+    //Sliders
+    var slider0 = document.getElementById('id_val_slider_dyn');
+    var moved_slider = document.getElementById('id_moved_slider');
+
+    slider0.oninput = function(){
+        var e_tickets = parseFloat((100-this.value)*rate0/100).toFixed(0);
+        var c_tickets = parseFloat(this.value*(rate0c/100)).toFixed(0);
+
+        if(e_tickets == "0") {
+            document.getElementById('val01').innerHTML =  "... erhalten Sie <b> nichts</b>.";}
+        else if (e_tickets == "100") {
+            document.getElementById('val01').innerHTML =  "... erhalten Sie " + prize + " <b> sicher</b>.";}
+        else {
+            document.getElementById('val01').innerHTML = "... erhalten Sie " + prize + " für die Zahlen von <b> 1 bis " + e_tickets +"</b>.";
+        }
+
+
+        if(c_tickets == "0") {
+            document.getElementById('val02').innerHTML =  "... erhalten Sie <b> nichts</b>.";}
+        else if (c_tickets == "100") {
+            document.getElementById('val02').innerHTML = "... erhalten Sie " + prize + " <b> sicher</b>.";}
+        else {
+            document.getElementById('val02').innerHTML = "... erhalten Sie " + prize + " für die Zahlen von <b> 1 bis " + c_tickets +"</b>.";
+        }
+
+        if(e_tickets == c_tickets){
+            document.getElementById('val_mix').innerHTML = {{M_text|json}}
+        }
+        else if (parseFloat(e_tickets) == parseFloat(rate0)) {
+            document.getElementById('val_mix').innerHTML = {{E_text_strong|json}}
+        }
+        else if (c_tickets == parseFloat(rate0c)){
+            document.getElementById('val_mix').innerHTML = {{C_text_strong|json}}
+        }
+        else if (parseFloat(e_tickets) > parseFloat(c_tickets)) {
+            document.getElementById('val_mix').innerHTML = {{E_text|json}}
+        }
+        else if (parseFloat(e_tickets) < parseFloat(c_tickets)){
+            document.getElementById('val_mix').innerHTML = {{C_text|json}}
+        }
+
+        slider0.className = 'form-control active_slider';
+        $('#id_checkslider').val(1);
+
+        $('.otree-btn-next').show();
+
+    }
+
+    </script>
+
+
+
+{% endblock %}

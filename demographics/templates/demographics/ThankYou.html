@@ -1,0 +1,61 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<p>
+    <b>Vielen Dank für Ihre Teilnahme an unserem Experiment!</b><br /><br />
+
+    Im Umschlag steht, dass die zweite Frage vom Thema
+    {{ title }}
+    ausgewählt wurde. Falls Sie dazu eine Slider Frage beantwortet haben, wird diese Frage gewählt.
+    Sonst wird die einfache Auswahlfrage gewählt.
+    Bei dieser Frage ging es für Sie um einen Gewinn von
+    {{ money }}.
+
+    Sie haben gewählt, dass Sie für die Zahlen kleiner als
+    {{ epoints }}
+    gewinnen falls
+    {{ e }}
+    und für die Zahlen kleiner als
+    {{ cpoints }}
+    falls
+    {{ c }}:
+    <br />
+<hr>
+
+    Tatsächlich ist eingetreten, dass
+    {{ true_event }}.
+    {% if points_lot > 0 %}
+        {% if points_lot < 100 %}
+            Sie gewinnen also für alle Zahlen bis einschließlich
+            {{ points_lot }}.
+            Für alle größeren Zahlen, gewinnen Sie keine {{ money }}.
+        {% else %}
+            Sie gewinnen sicher {{ money }}.
+        {% endif %}
+    {% else %}
+        Sie gewinnen also kein zusätzliches Geld.
+    {% endif %}
+<br />
+</p>
+
+<p>
+    Außerdem erhalten Sie für die Teilnahme 5 Euro und die Auszahlungen von dem Dilemma Spiel und der ersten Runde Zahlen ziehen.
+</p>
+
+
+<p>
+    Bitte kommen Sie nun <b>mit Ihrer ID</b> nach vorne um eine Zahl zu ziehen und Ihre Auszahlung zu erhalten.
+    Falls bereits andere Teilnehmer warten, stellen Sie sich in Ruhe an. Wir bitten um wenige Minuten Geduld.
+</p>
+
+
+
+
+
+{% endblock %}

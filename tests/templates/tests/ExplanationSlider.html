@@ -1,0 +1,332 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Anleitung: Eine Slider-Frage
+{% endblock %}
+
+{% block content %}
+
+    <p><b>Eine Slider-Frage</b></p>
+    <p>
+        Zu manchen Ereignissen werden Sie 5 Slider-Fragen beantworten müssen.
+        In jeder Frage müssen Sie auswählen für wieviele gezogene Zahlen Sie die 10 Euro erhalten, wenn das Ereignis eintritt
+        und für wieviele, wenn das Ereignis nicht eintritt. <b>Sie können die Position des Sliders und somit Ihre Auszahlung wählen.</b>
+    </p>
+
+    <p>
+        Unten sehen Sie eine Beispielfrage. Es geht um das Ereignis, ob ein blauer oder ein roter Ball gezogen wird.
+    </p>
+
+    <p>
+        Mit dem Slider können Sie wählen unter welchen Umständen Sie 10 Euro gewinnen.
+        Je mehr Gewinnzahlen Sie haben, wenn ein blauer Ball gezogen wird, desto weniger Gewinnzahlen haben Sie, wenn ein roter Ball gezogen wird.
+        Die Slider-Fragen unterscheiden sich im Verhältnis,
+        mit dem Sie Gewinnzahlen zwischen den zwei Alternativen verschieben können. In diesem Beispiel ist das Verhältnis 67 zu 100.
+    </p>
+
+
+    <p>
+        <b>
+            Bitte bewegen Sie den Slider auf der grauen Linie nach links und rechts
+        </b>
+        und
+        beobachten Sie wie sich die Gewinnzahlen verändern, die Sie erhalten würden wenn ein blauer Ball gezogen wird oder wenn ein roter Ball gezogen wird.
+    </p>
+
+    <p>
+        Je weiter links der Slider ist, desto mehr setzen Sie darauf, dass ein blauer Ball gezogen wird.
+        Je weiter rechts der Slider ist, desto mehr setzen Sie darauf, dass ein roter Ball gezogen wird.
+    </p>
+
+    <p><b>Bitte wählen Sie unter welchen Umständen Sie 10 Euro erhalten. Welche Auszahlung bevorzugen Sie?</b></p>
+
+    <hr>
+        <table class="table">
+        <tr>
+            <td>
+                <img src="{% static image_pathE %}" style="max-height:50%; max-width:50%" />
+            </td>
+            <td>
+
+            </td>
+            <td>
+                <img src="{% static image_pathC %}" style="max-height:50%; max-width:50%" />
+            </td>
+            </td>
+        </tr>
+            <tr>
+            <td>
+                    Falls
+                    <b>
+                        {{ player.fun_etext }}
+                    </b>
+                     ...
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+                    Falls
+                    <b>
+                        {{ player.fun_ctext }}
+                    </b>
+                      ...
+
+            </td>
+        </tr>
+        <tr>
+                <td><div id="val01" class="valBox_left"> - </div></td>
+            <td>  <div class="slider_table"> {% formfield player.val_slider_dyn %} </div> </td>
+                <td><div id="val02" class="valBox_right"> - </div><div class="clear"></div></td>
+        </tr>
+        <tr>
+
+            <td colspan="3">    <div id="val_mix"> Bewegen Sie den Slider auf dem grauen Streifen um die möglichen Auszahlungen zu erkunden. </div> </td>
+
+        </tr>
+        </table>
+
+    {{ form.checkslider.errors }}
+    <hr>
+
+
+
+
+    <p>
+        <b>Bewegen Sie den Slider nun ganz nach links.</b>
+        Sie sollten beobachten, dass Sie nun für alle Zahlen von 1 bis 67 die 10 Euro gewinnen, falls ein blauer Ball gezogen wird, und für keine Zahlen, falls ein roter Ball gezogen wird.
+        Sie setzen also ganz auf den blauen Ball.
+    </p>
+
+
+    <p>
+        <b>Bewegen Sie den Slider nun ganz nach rechts.</b>
+        Je weiter Sie nach rechts gehen, desto mehr Gewinnzahlen haben Sie für den Fall, dass ein roter Ball gezogen wird.
+        Sie sollten beobachten, dass Sie nun für alle Zahlen die 10 Euro gewinnen, falls ein roter Ball gezogen wird, und für keine Zahlen, falls ein blauer Ball gezogen wird.
+        Da es mehr rote als blaue Bälle gibt, ist dies eine sinnvolle Wahl.
+        Klicken Sie auf weiter, wenn der Slider entsprechend eingestellt ist.
+    </p>
+
+
+
+    {% next_button %}
+
+    <input type="hidden" name="checkslider" value="" id="id_checkslider"/>
+
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+    <style>
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;
+        }
+
+        {% if player.elicit_type == "slider" %}
+            .otree-btn-next {
+                    display: none;
+                }
+        {% endif %}
+
+        #titleText{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .otree-timer {
+                display: none;
+            }
+
+        #titleText{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fieldWrapper{
+        margin-left: 100px;
+        }
+         .divBox{
+            margin-top: 40px;
+        }
+         .upperBox{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .clear{
+            clear: both;
+        }
+        #leftText_short{
+            display:inline-block;
+            width: 40%;
+            float: left;
+        }
+        #rightText_short{
+            display:inline-block;
+            width: 40%;
+            float: right;
+        }
+        #leftText{
+            display:inline-block;
+            width: 40%;
+            float: left;
+        }
+        #rightText{
+            display:inline-block;
+            width: 40%;
+            float: right;
+        }
+
+
+        #leftText_slider{
+            width: 25%;
+            float: left;
+        }
+        #rightText_slider{
+            width: 25%;
+            float: right;
+        }
+
+
+        #wrap_slider{
+        float: left;
+        position: relative;
+        left: 50%;
+        }
+
+        #val01{
+            margin: auto;
+        }
+
+        #val02{
+           margin: auto;
+        }
+
+        .table{
+            text-align:center
+        }
+
+        td:nth-child(1) {
+          width: 25%;
+          }
+        td:nth-child(2) {
+            width: 50%;
+        }
+        td:nth-child(3) {
+          width: 25%;
+         }
+
+
+        .slider_table{
+            width: 100%;
+            position: relative;
+            left: 10%;
+        }
+
+        #sliderBox{
+            float: left;
+            width: 70%;
+            margin: 5px;
+        }
+        .clear{
+            clear: both;
+        }
+        input[type="range"].form-control::-webkit-slider-thumb {
+              visibility: hidden;
+        }
+
+        input[type="range"].form-control::-moz-range-thumb {
+            visibility: hidden;
+        }
+        input[type="range"].form-control::-ms-thumb {
+            visibility: hidden;
+        }
+        input[type="range"].active_slider::-webkit-slider-thumb {
+            visibility: visible;
+        }
+        input[type="range"].active_slider::-moz-range-thumb {
+            visibility: visible;
+        }
+        input[type="range"].active_slider::-ms-thumb {
+            visibility: visible;
+
+
+        }
+    </style>
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script>
+
+
+    //Initializing slider rates
+    var rate0 = {{q_now}};
+    var rate0c = {{q_not_now}};
+
+    var prize = {{prize_string|json}};
+
+
+    //Sliders
+    var slider0 = document.getElementById('id_val_slider_dyn');
+    var moved_slider = document.getElementById('id_moved_slider');
+
+    slider0.oninput = function(){
+        var e_tickets = parseFloat((100-this.value)*rate0/100).toFixed(0);
+        var c_tickets = parseFloat(this.value*(rate0c/100)).toFixed(0);
+
+        if(e_tickets == "0") {
+            document.getElementById('val01').innerHTML =  "... erhalten Sie <b> nichts</b>.";}
+        else if (e_tickets == "100") {
+            document.getElementById('val01').innerHTML =  "... erhalten Sie " + prize + " <b> sicher</b>.";}
+        else {
+            document.getElementById('val01').innerHTML = "... erhalten Sie " + prize + " für die Zahlen von <b> 1 bis " + e_tickets +"</b>.";
+        }
+
+
+        if(c_tickets == "0") {
+            document.getElementById('val02').innerHTML =  "... erhalten Sie <b> nichts</b>.";}
+        else if (c_tickets == "100") {
+            document.getElementById('val02').innerHTML = "... erhalten Sie " + prize + " <b> sicher</b>.";}
+        else {
+            document.getElementById('val02').innerHTML = "... erhalten Sie " + prize + " für die Zahlen von <b> 1 bis " + c_tickets +"</b>.";
+        }
+
+        if(e_tickets == c_tickets){
+            document.getElementById('val_mix').innerHTML = {{M_text|json}}
+        }
+        else if (parseFloat(e_tickets) == parseFloat(rate0)) {
+            document.getElementById('val_mix').innerHTML = {{E_text_strong|json}}
+        }
+        else if (c_tickets == parseFloat(rate0c)){
+            document.getElementById('val_mix').innerHTML = {{C_text_strong|json}}
+        }
+        else if (parseFloat(e_tickets) > parseFloat(c_tickets)) {
+            document.getElementById('val_mix').innerHTML = {{E_text|json}}
+        }
+        else if (parseFloat(e_tickets) < parseFloat(c_tickets)){
+            document.getElementById('val_mix').innerHTML = {{C_text|json}}
+        }
+
+        slider0.className = 'form-control active_slider';
+        $('#id_checkslider').val(1);
+
+        $('.otree-btn-next').show();
+
+    }
+
+    </script>
+
+
+
+{% endblock %}

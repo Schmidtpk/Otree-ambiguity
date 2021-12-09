@@ -1,0 +1,280 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <div id="titleText">
+        {{ player.fun_title }}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <p>
+        Sie können in dieser Runde <b>{{ player.tickets_prize_text }}</b> gewinnen.
+        Jeder gewonnene Punkt erhöht Ihre Gewinnchance um 1%.
+    </p>
+
+
+
+    {% if player.elicit_type == "choice" %}
+        {% formfield player.val_now %}
+    {% endif %}
+
+    {% if player.elicit_type == "ticket" %}
+        <p>
+            Sie haben 100 Punkte, die Sie zwischen den zwei möglichen Ereignissen verteilen müssen.
+            Es müssen alle 100 Punkte zwischen den zwei Möglichkeiten verteilt werden.
+        </p>
+
+        <div class="upperBox">
+            <div id="leftText_short">
+
+                <b>
+                   <center> {{ q_now }}% für {{ player.etext_short }} </center>
+                </b>
+
+            </div>
+
+            <div id="rightText_short">
+
+                <b>
+                    <center> {{ q_not_now }}% für {{ player.ctext_short }} </center>
+                </b>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="divBox">
+            <div id="leftText">
+                <p> Falls <b>{{ player.tickets_text_dyn_E }} </b>
+                Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+                {{ form.valtdyn.errors }}
+                <div class="fieldWrapper">
+                        {{ form.valtdyn }}
+                </div>
+            </div>
+            <div id="rightText">
+                {{ form.valtdynb.errors }}
+                <p> Falls <b>{{ player.tickets_text_dyn_C }} </b>
+                Wieviele der 100 Punkte möchten Sie darauf setzen?</p>
+                <div class="fieldWrapper">
+                    {{ form.valtdynb }}
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <hr>
+    {% endif %}
+
+
+    {% if player.elicit_type == "slider" %}
+        {% if dynamic_counter == 1 %}
+        <p>
+                Bitte bewegen Sie den Slider auf der grauen Linie nach links und rechts und wählen Sie so ihre favorisierte Kombination an Punkten.
+                Je weiter links der Slider ist, desto mehr setzen Sie darauf, dass {{player.fun_etext}}.
+                Je weiter rechts der Slider ist, desto mehr setzen Sie darauf, dass {{player.fun_ctext}}.
+        </p>
+        {% else %}
+         <p>
+                Bitte bewegen Sie erneut den Slider und wählen Sie so ihre favorisierte Kombination an Punkten.
+                Im Vergleich zur letzten Frage, hat sich der Zusammenhang von Sliderposition und Punktauszahlung verändert.
+         </p>
+        {% endif %}
+
+        <table class="table">
+        <tr>
+            <td>
+                    Falls
+                    <b>
+                        {{ player.fun_etext }},
+                    </b>
+                    erhalten Sie folgende Anzahl an Punkten:
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+                    Falls
+                    <b>
+                        {{ player.fun_ctext }},
+                    </b>
+                     erhalten Sie folgende Anzahl an Punkten:
+
+            </td>
+        </tr>
+        <tr>
+                <td><div id="val01" class="valBox_left">- Punkte</div></td>
+            <td>  <div class="slider_table"> {% formfield player.val_slider_dyn %} </div> </td>
+                <td><div id="val02" class="valBox_right">- Punkte</div><div class="clear"></div></td>
+        </tr>
+        </table>
+
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+    <style>
+        #titleText{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .otree-timer {
+                display: none;
+            }
+
+        #titleText{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fieldWrapper{
+        margin-left: 100px;
+        }
+         .divBox{
+            margin-top: 40px;
+        }
+         .upperBox{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .clear{
+            clear: both;
+        }
+        #leftText_short{
+            display:inline-block;
+            width: 40%;
+            float: left;
+        }
+        #rightText_short{
+            display:inline-block;
+            width: 40%;
+            float: right;
+        }
+        #leftText{
+            display:inline-block;
+            width: 40%;
+            float: left;
+        }
+        #rightText{
+            display:inline-block;
+            width: 40%;
+            float: right;
+        }
+
+
+        #leftText_slider{
+            width: 25%;
+            float: left;
+        }
+        #rightText_slider{
+            width: 25%;
+            float: right;
+        }
+
+
+        #wrap_slider{
+        float: left;
+        position: relative;
+        left: 50%;
+        }
+
+        #val01{
+            margin: auto;
+        }
+
+        #val02{
+           margin: auto;
+        }
+
+        .table{
+            text-align:center
+        }
+
+        td:nth-child(1) {
+          width: 25%;
+          }
+        td:nth-child(2) {
+            width: 50%;
+        }
+        td:nth-child(3) {
+          width: 25%;
+         }
+
+
+        .slider_table{
+            width: 100%;
+            position: relative;
+            left: 10%;
+        }
+
+        #sliderBox{
+            float: left;
+            width: 70%;
+            margin: 5px;
+        }
+        .clear{
+            clear: both;
+        }
+        input[type="range"].form-control::-webkit-slider-thumb {
+            visibility: hidden;
+        }
+        input[type="range"].form-control::-moz-range-thumb {
+            visibility: hidden;
+        }
+        input[type="range"].form-control::-ms-thumb {
+            visibility: hidden;
+        }
+        input[type="range"].active_slider::-webkit-slider-thumb {
+            visibility: visible;
+        }
+        input[type="range"].active_slider::-moz-range-thumb {
+            visibility: visible;
+        }
+        input[type="range"].active_slider::-ms-thumb {
+            visibility: visible;
+        }
+    </style>
+{% endblock %}
+
+
+
+
+{% block scripts %}
+    <script>
+        $(function () {
+            // Hide the timer until only 'minutes' minutes are left
+            var minutes = {{ Constants.minutes }};
+            $('.otree-timer__time-left').on('update.countdown', function (event) {
+                diff = event.offset.totalSeconds;
+                thediv = $('div.otree-timer');
+                if (diff < 30 * minutes) {
+                    thediv.show()
+                }
+            });
+        });
+
+
+    //Initializing slider rates
+    var rate0 = {{q_now}};
+
+    //Sliders
+    var slider0 = document.getElementById('id_val_slider_dyn');
+
+    slider0.oninput = function(){
+        document.getElementById('val01').innerHTML = parseFloat((100-this.value)*rate0/100).toFixed(0)+" Punkte";
+        document.getElementById('val02').innerHTML = parseFloat(this.value*(1-rate0/100)).toFixed(0)+" Punkte";
+        slider0.className = 'form-control active_slider';
+    }
+    </script>
+
+{% endblock %}

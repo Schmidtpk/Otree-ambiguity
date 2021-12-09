@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<p>
+    <b>
+        Geschafft!
+    </b><br /><br />
+
+    Im gesamten Experiment haben Sie
+    {{ player.participant.payoff }}
+    zusätzlich bekommen.
+    <br /><br />
+    Jeder Teilnehmer bekommt außerdem 5 Euro für die Teilnahme.
+    Sie bekommen also {{ participant.payoff_plus_participation_fee }}.
+    <br /><br />
+    Vielen Dank für Ihre Teilnahme. Ohne Teilnehmer wie Sie wäre unsere Forschung nicht möglich.
+<br />
+<hr>
+    Bitte kommen Sie nun <b>mit Ihrer ID</b> nach vorne um Ihre Auszahlung zu erhalten.
+    Falls schon Teilnehmer vorne stehen, stellen Sie sich in Ruhe an. Wir bitten um wenige Minuten Geduld.
+</p>
+
+{% endblock %}

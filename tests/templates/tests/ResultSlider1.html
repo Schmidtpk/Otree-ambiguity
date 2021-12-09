@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Testfragen: Eine Frage
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        {% if player.val_slider_dyn == 0 %}
+             Sie haben den Slider wie gewünscht eingestellt.
+             Es folgen weitere Testfragen.
+        {% else %}
+             Sie haben den Slider nicht wie gewünscht eingestellt.
+             Es folgen weitere Testfragen. Bitte heben Sie den Arm falls etwas unklar sein sollte.
+        {% endif %}
+    </p>
+
+    {% next_button %}
+
+{% endblock %}
+

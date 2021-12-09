@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ergebnis
+{% endblock %}
+
+{% block content %}
+
+
+    <p>
+        Folgendes Ereignis ist tatsächlich eingetreten:
+        {{ player.group.eventTRUE }}.
+    </p>
+
+    {% next_button %}
+{% endblock %}
+
+

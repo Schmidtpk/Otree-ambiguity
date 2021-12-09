@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Anleitung: Gewinne
+{% endblock %}
+
+{% block content %}
+
+    <p><b>Die Geldbeträge</b></p>
+    <p>
+        Im Hauptteil des Experiments können Sie 10 Euro extra gewinnen.
+        Ihre Antworten beeinflussen <b> unter welchen Bedingungen </b> Sie die 10 Euro gewinnen.
+    </p>
+
+    <hr>
+    <p><b>Eine zufällige Frage bestimmt die Auszahlung</b></p>
+    <p>
+        Es wird mehrere Runden geben und zu jedem Thema mehrere Fragen.
+        Nur eine der Fragen wird Ihre Auszahlung am Ende beeinflussen.
+        Alle anderen Fragen sind dann irrelevant.
+        Die ausgewählte Frage befindet sich in einem Umschlag und wird nach dem Experiment einsehbar sein.
+        Sie erfahren also erst am Ende, welche Frage Ihre Auszahlung bestimmt.
+    </p>
+
+    {% next_button %}
+
+{% endblock %}
+

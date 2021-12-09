@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Anleitung und Testfragen
+{% endblock %}
+
+{% block content %}
+
+
+<p>
+    Es folgen Anleitungen für das Experiment.
+    Zwischendurch müssen Sie Testfragen zum Experiment beantworten.
+    Bitte nehmen Sie sich Zeit für die Anleitung.
+    Sie können nicht zurück auf die letzte Seite.
+    Klicken Sie also erst auf weiter, wenn Sie alles verstanden haben.
+
+</p>
+
+<p>
+    Sollten Sie zu viele Testfragen falsch beantworten, müssen wir Sie leider vom Experiment ausschließen
+    und Sie können kein zusätzliches Geld gewinnen.
+</p>
+
+    {% next_button %}
+
+{% endblock %}

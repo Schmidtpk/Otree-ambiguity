@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Anleitung: Gewinne
+{% endblock %}
+
+{% block content %}
+
+    <p><b>Die Geldbeträge</b></p>
+    <p>
+        Sie erhalten 5 Euro für die Teilnahme an diesem Experiment.
+        Zusätzlich können Sie noch Geld gewinnen.
+        Der zu gewinnende Geldbetrag variiert zufällig zwischen 10 und 20 Euro
+        und kann nicht von Ihnen beeinflusst werden.
+        Ihre Antworten beeinflussen <b> mit welcher Wahrscheinlichkeit </b> Sie den Geldbetrag gewinnen.
+    </p>
+
+    <hr>
+    <p><b>Eine zufällige Frage bestimmt die Wahrscheinlichkeit</b></p>
+    <p>
+        Es wird mehrere Themen geben und zu jedem Thema mehrere Fragen.
+        Nur eine der Fragen wird Ihre Auszahlung am Ende beeinflussen.
+        Alle anderen Fragen sind dann irrelevant.
+        Die ausgewählte Frage befindet sich in einem Umschlag und wird nach dem Experiment einsehbar sein.
+        Sie erfahren also erst am Ende, welche Frage Ihre Auszahlung bestimmt.
+    </p>
+
+    {% next_button %}
+
+{% endblock %}
+

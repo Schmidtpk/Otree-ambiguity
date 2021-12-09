@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Testfragen: Ein Beispiel-Experiment
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Stellen Sie sich folgenden Situation vor:
+        In der ausgewählten Frage geht es um 20 Euro und Sie haben gewählt, dass Sie 70 Punkte erhalten, falls der Dax steigt und
+        0 Punkte falls der DAX nicht steigt.
+    </p>
+
+
+
+    <p>
+        <img src="{% static '70.png' %}"/>
+    </p>
+
+    <p>
+        Stellen Sie sich weiterhin vor, dass der DAX nicht gestiegen ist und Sie am Ende des Experiments die
+        Zahl 33 ziehen.
+    </p>
+
+    <hr>
+
+    <p>
+        <b>
+            Ihre Antwort ist {% if player.test_all1 == "T" %} richtig. {% else %} falsch. {% endif %}
+        </b>
+        Da der DAX nicht gestiegen ist, erhalten Sie 0 Punkte.
+        Somit gewinnen Sie für keine der möglichen gezogenen Zahlen die 20 Euro.
+        Die gezogene Zahl 33 ist größer als ihre 0 Punkte. Sie erhalten keinen Gewinn in dieser Situation.
+    </p>
+
+    <hr>
+
+
+    <p>
+        <b>
+            Ihre Antwort ist {% if player.test_all2 == "T" %} richtig. {% else %} falsch. {% endif %}
+        </b>
+        Falls der DAX steigt, erhalten Sie 70 Punkte. Das heißt Sie gewinnen falls Sie eine Zahl
+        von 1 bis 70 ziehen. Da Sie in dieser Situation eine 33 ziehen, gewinnen Sie die 20 Euro.
+    </p>
+
+
+    {% next_button %}
+
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Testfragen: Ein Beispiel-Experiment
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Stellen Sie sich folgenden Situation vor:
+        In der ausgewählten Frage geht es um 20 Euro und Sie haben gewählt, dass Sie 70 Punkte erhalten, falls der Dax steigt und
+        0 Punkte falls der DAX nicht steigt.
+    </p>
+
+
+    <p>
+        <img src="{% static '70.png' %}"/>
+    </p>
+
+    <p>
+        Stellen Sie sich weiterhin vor, dass der DAX nicht gestiegen ist und Sie am Ende des Experiments die
+        Zahl 33 ziehen.
+    </p>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}
+

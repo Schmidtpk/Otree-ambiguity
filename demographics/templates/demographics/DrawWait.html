@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Die Nummer wird gezogen, sobald alle Spieler geantwortet haben.
+{% endblock %}
+
+{% block content %}
+
+    {% next_button %}
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+<style>
+    #titleText{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+{% endblock %}

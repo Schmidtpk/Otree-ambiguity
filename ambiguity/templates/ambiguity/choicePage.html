@@ -1,0 +1,37 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <div id="titleText">
+        {{ player.fun_title }}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <p>
+        Sie können in dieser Runde <b>{{ player.tickets_prize_text }}</b> gewinnen.
+        Wird eine der Fragen am Ende des Experiments ausgewählt,
+        erhöht jeder dort gewonnene Punkt Ihre Gewinnchance um 1%.
+    </p>
+
+    <p>
+        Bitte wählen Sie in jeder Frage eine der drei Möglichkeiten.
+    </p>
+    <hr>
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+<style>
+    #titleText{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+{% endblock %}

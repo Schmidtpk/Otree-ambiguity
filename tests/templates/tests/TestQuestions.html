@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Testfragen: Gewinne
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Stellen Sie sich folgenden Ausgang des Experiments vor: Sie haben drei Fragen beantwortet.
+        In der ersten Frage haben Sie 10 Euro gewonnen.
+        In der zweiten Frage haben Sie 0 Euro gewonnen.
+        In der dritten Frage haben Sie 10 Euro gewonnen.
+    </p>
+
+    <p>
+        Stellen Sie sich außerdem vor, dass im Umschlag steht, dass die zweite Frage ausgewählt wurde.
+    </p>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}
+

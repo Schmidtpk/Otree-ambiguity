@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <div id="titleText">
+        Runde {{player.topic_number}} von {{ player.topic_number_total }}: {{ player.fun_title }}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <p>
+
+        {{ player.fun_explanation }}
+
+    </p>
+
+    <img src="{% static image_path %}"  class="center"/>
+
+
+    {% next_button %}
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+<style>
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 10cm;
+    }
+
+    #titleText{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+{% endblock %}

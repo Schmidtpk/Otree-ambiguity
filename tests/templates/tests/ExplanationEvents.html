@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Anleitung: Der DAX und die Urne
+{% endblock %}
+
+{% block content %}
+
+    <p> Zunächst beschreiben wir die unsicheren Ereignisse im Detail.</p>
+
+    <p><b> Zusammenarbeit des anderen Teilnehmers </b></p>
+
+    <p>
+        Am Anfang des Experiments waren Sie und ein anderer Teilnehmer in einem Dilemma.
+        Ihnen ist nicht bekannt wie sich der andere Spieler entschieden hat.
+        Wir betrachten, ob der andere Teilnehmer <b> Zusammenarbeit </b> oder den <b> Alleingang </b> gewählt hat.
+    </p>
+
+
+    <p><b> Der DAX </b></p>
+
+    <p>
+        An der Tafel steht der DAX Kurs bei Börsenschluss gestern.
+        Wir betrachten, ob der DAX bis zum Ende des Experiments über diesen Wert <b> steigt </b> oder unter diesen Wert <b> fällt</b>.
+        (Entscheidend ist der Kurs, den Google für den DAX Index angibt.)
+    </p>
+
+    <p><b> Die Urne </b></p>
+
+    <p>
+        In der Urne befinden sich 90 Bälle. 30 Bälle sind blau. 60 Bälle sind rot. Von den roten Bällen ist eine unbekannte Zahl gepunktet.
+    </p>
+    <p>
+        Der Experimentleiter wird blind eine Kugel aus der Urne ziehen.
+    </p>
+    <p>
+        In einer Runde betrachten wir, ob die gezogene Kugel <b> blau </b> ist oder <b> rot </b>.
+        In diesem Fall kennen Sie die Verhältnisse. Es gibt 30 blaue Bälle und 60 rote Bälle (egal ob mit oder ohne Punkte).
+    </p>
+    <p>
+        In einer anderen Runde betrachten wir, ob die gezogene Kugel <b> gepunktet </b> ist oder <b> einfarbig </b>.
+        In diesem Fall kennen Sie die Verhältnisse nicht. Sie wissen nur, dass 60 der Bälle gepunktet sein können
+        und 30 der Bälle nicht gepunktet sein können.
+        <b> Die genaue Anzahl an gepunkteten Bällen ist ihnen nicht bekannt. </b> Sie kann zwischen 0 und 60 liegen.
+    </p>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}
+

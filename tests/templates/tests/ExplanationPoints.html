@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Anleitung: Wann gewinne ich?
+{% endblock %}
+
+{% block content %}
+
+    <p><b> Unsichere Ereignisse </b></p>
+
+    <p>
+        In jeder Runde betrachten wir ein anderes unsicherer Ereignis.
+        Zum Beispiel ob der DAX steigt oder ob ein blauer Ball aus der Urne gezogen wird.
+        In jeder Frage müssen Sie entscheiden für welchen Ausgang Sie die 10 Euro gewinnen und
+        für welchen Ausgang Sie kein Geld erhalten.
+    </p>
+
+
+    <p><b> Die Reihenfolge </b></p>
+
+    <ol>
+        <li>Sie beantworten zunächst alle Fragen und
+        entscheiden für welchen Ausgang Sie 10 Euro erhalten und für welchen Ausgang Sie kein Geld erhalten.</li>
+        <li>Anschließend öffnen wir den Umschlag, der bestimmt welche Frage ihre Auszahlung bestimmt.</li>
+        <li>Dann werden wir den Ausgang des unsicheren Ereignisses betrachten.
+            Zum Beispiel ob der DAX gestiegen ist oder welcher Ball gezogen wurde.</li>
+        <li> Dann ziehen Sie eine Zahl von 1 bis 100 aus der Box.</li>
+        <li> Zuletzt bekommen Sie 10 Euro oder nicht.</li>
+    </ol>
+
+    {% next_button %}
+
+{% endblock %}
+

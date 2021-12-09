@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Zahl ziehen um Geld
+{% endblock %}
+
+{% block content %}
+    <p>
+        {% if player.risk_choice == "risky" %}
+
+            Sie bekommen 5 Euro, falls Sie eine Zahl von 1 bis 50 ziehen. Bitte warten Sie bis Sie an der Reihe sind.
+
+        {% elif  player.risk_choice == "risky2" %}
+
+            Sie bekommen 10 Euro, falls Sie eine Zahl von 1 bis 30 ziehen. Bitte warten Sie bis Sie an der Reihe sind.
+
+        {% else %}
+            Sie bekommen 2 Euro. Bitte warten Sie bis die anderen Teilnehmer eine Zahl gezogen haben.
+
+        {% endif %}
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

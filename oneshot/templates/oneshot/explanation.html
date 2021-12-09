@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <div id="titleText">
+        {{ player.fun_title }}
+    </div>
+{% endblock %}
+
+{% block content %}
+<p>
+    <b>
+        {{ player.fun_explanation }}
+    </b>
+</p>
+
+
+    {% next_button %}
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+<style>
+    #titleText{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+{% endblock %}

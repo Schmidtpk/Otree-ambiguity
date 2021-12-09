@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Auswertung der Testfragen
+{% endblock %}
+
+{% block content %}
+<p>
+    Sie haben von 12 Testfragen insgesamt {{ player.mistakes }} falsch beantwortet.
+</p>
+
+<p>
+    {% if player.mistakes <= 4 %}
+        Sie können am Experiment teilnehmen.
+
+        {% next_button %}
+    {% else %}
+        Leider können Sie nicht am weiteren Experiment teilnehmen.
+        Bitte warten Sie kurz bis Sie nach vorne gebeten werden um Ihre Teilnahmevergütung abzuholen.
+    {% endif %}
+</p>
+
+
+
+{% endblock %}

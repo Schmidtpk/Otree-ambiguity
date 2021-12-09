@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Zahl ziehen um Geld
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Sie werden gleich aufgefordert blind eine Zahl aus einer Box zu ziehen. In der Box befinden sich alle Zahlen von 1 bis 100 genau einmal.
+    </p>
+
+    <p>
+        Bevor Sie eine Zahl ziehen, dürfen Sie auf der nächsten Seite zwischen unterschiedlichen Auszahlungen wählen.
+        Ihre Wahl und die gezogene Zahl bestimmen anschließend ob Sie zusätzliches Geld erhalten.
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

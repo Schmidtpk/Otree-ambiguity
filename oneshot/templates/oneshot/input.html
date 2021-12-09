@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <div id="titleText">
+        Input - Bitte heben Sie ihre Hand, falls Sie diese Seite sehen und weisen den Experimentleiter darauf hin.
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+<style>
+    #titleText{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+{% endblock %}

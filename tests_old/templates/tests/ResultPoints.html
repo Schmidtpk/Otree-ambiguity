@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Testfragen: Gewinne
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Stellen Sie sich folgenden Ausgang des Experiments vor:
+        Es wurde eine Frage ausgewählt in der Sie 10 Euro gewinnen können und in der Sie 35 Punkte erspielt haben.
+    </p>
+
+    <p>
+        Stellen Sie sich weiterhin vor, dass Sie am Ende des Experiments die Zahl 61 aus der Box ziehen.
+    </p>
+
+    <hr>
+
+    <p>
+        <b>
+            Ihre Antwort ist {% if player.test_points1 == "T" %} richtig. {% else %} falsch. {% endif %}
+        </b>
+        Die Punkte bestimmen für welche gezogenen Zahlen Sie Geld gewinnen.
+        Sie gewinnen, falls Sie mehr Punkte haben als die gezogene Zahl.
+        Für die ausgewählte Frage kommen zwar 10 Euro Gewinn in Frage, allerdings haben Sie nur 35 Punkte
+        und es wurde die Zahl 61 gezogen. Folglich gewinnen Sie nichts.
+    </p>
+
+    <hr>
+
+
+    <p>
+        <b>
+            Ihre Antwort ist {% if player.test_points2 == "T" %} richtig. {% else %} falsch. {% endif %}
+        </b>
+        Da die Zahl 40 immernoch größer ist als die Punktzahl 35, gewinnen Sie in diesem Szenario auch kein Geld.
+        Wenn Sie statt 35 Punkte, 70 Punkte hätten, ist ihre Punktzahl höher als die gezogene Zahl 61 und Sie
+        gewinnen 10 Euro zusätzlich.
+    </p>
+
+
+    {% next_button %}
+
+{% endblock %}
+

@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ergebnis
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Es wurde eine {{ group.number_draw }} gezogen und du hast {{ player.compute_points }} Punkte.
+    </p>
+
+
+    <p>
+        {% if group.number_draw <= player.compute_points %}
+            Du gewinnst 2 € extra in diesem Spiel.
+        {% else %}
+            Du gewinnst keine 2 € extra in diesem Spiel.
+        {% endif %}
+    </p>
+
+
+    {% next_button %}
+{% endblock %}
+
+

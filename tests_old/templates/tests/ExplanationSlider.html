@@ -1,0 +1,246 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Anleitung: Eine Frage
+{% endblock %}
+
+{% block content %}
+
+    <p><b>Das Ereignis</b></p>
+    <p>
+        Sie werden verschiedene Ereignisse betrachten. Zum Beispiel ob der DAX von Anfang bis Ende des Experiments
+        steigt oder nicht.
+    </p>
+
+    <p><b>Eine Frage</b></p>
+    <p>
+        Zu jedem Ereignis werden Sie 9 Fragen beantworten müssen.
+        In jeder Frage müssen Sie auswählen wieviele Punkte Sie erhalten möchten, wenn das Ereignis eintritt
+        und wieviel Punkte, wenn das Ereignis nicht eintritt.
+        Je mehr Punkte Sie für das Ereignis erhalten,
+        desto weniger erhalten Sie, falls das Ereignis nicht eintritt.
+        Die 9 Fragen unterscheiden sich im Verhältnis,
+        mit der man Punkte zwischen den zwei Möglichkeiten verschieben kann.
+    </p>
+
+    <p><b>Auswahl der Auszahlung mit einem Slider</b></p>
+
+    <p>
+        Unten sehen Sie eine Beispielfrage mit dem Verhältnis 4 zu 6.
+        Es geht um das Ereignis, ob der Dax steigt oder nicht.
+    </p>
+    <p>
+        <b>
+            Bitte bewegen Sie den Slider auf der grauen Linie nach links und rechts
+        </b>
+        und
+        beobachten Sie wie sich die Punkte verändern, die Sie erhalten würden wenn der DAX steigt
+        und wenn er nicht steigt.
+
+    </p>
+    <p>
+        Je weiter links der Slider ist, desto mehr setzen Sie darauf, dass der Dax steigt.
+        Je weiter rechts der Slider ist, desto mehr setzen Sie darauf, dass der Dax nicht steigt.
+    </p>
+
+    <hr>
+
+        <table class="table">
+        <tr>
+            <td>
+                    Falls
+                    <b>
+                        der DAX steigt,
+                    </b>
+                    erhalten Sie folgende Anzahl an Punkten:
+
+            </td>
+            <td>
+                <b> Verhältnis <br>
+                    4 : 6 </b>
+            </td>
+            <td>
+                    Falls
+                    <b>
+                        der DAX nicht steigt,
+                    </b>
+                     erhalten Sie folgende Anzahl an Punkten:
+
+            </td>
+        </tr>
+        <tr>
+                <td><div id="val01" class="valBox_left">- Punkte</div></td>
+            <td>  <div class="slider_table"> {% formfield player.example_slider %} </div> </td>
+                <td><div id="val02" class="valBox_right">- Punkte</div><div class="clear"></div></td>
+        </tr>
+        </table>
+
+    <hr>
+
+    <p>
+        <b>Bewegen Sie den Slider nun ganz nach links.</b>
+        Sie sollten beobachten, dass Sie nun 40 Punkte erhalten, falls der DAX steigt und 0 Punkte,
+        falls der DAX nicht steigt.
+    </p>
+
+    <p>
+        <b>Bewegen Sie den Slider nun ganz nach rechts.</b>
+        Sie sollten beobachten, dass Sie nun 60 Punkte erhalten, falls der DAX nicht steigt und 0 Punkte,
+        falls der DAX steigt.
+    </p>
+
+    <p>
+        <b>Bewegen Sie den Slider nun auf eine Position, so dass Sie 8 Punkte erhalten, wenn der DAX steigt und 48 Punkte, wenn der DAX nicht steigt.</b>
+        Klicken Sie auf weiter, wenn der Slider entsprechend eingestellt ist.
+    </p>
+
+    {% next_button %}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    //Initializing slider rates
+    var rate0 = 6;
+
+    console.log(rate0);
+
+    //Sliders
+    var slider0 = document.getElementById('id_example_slider');
+
+    slider0.oninput = function(){
+        document.getElementById('val01').innerHTML = parseFloat((100-this.value)*(1-rate0/10)).toFixed(0)+" Punkte";
+        document.getElementById('val02').innerHTML = parseFloat((this.value)*rate0/10).toFixed(0)+" Punkte";
+        slider0.className = 'form-control active_slider';
+    }
+</script>
+{% endblock %}
+
+
+{% block app_styles %}
+    <style>
+        #titleText{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .otree-timer {
+                display: none;
+            }
+
+        #titleText{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fieldWrapper{
+        margin-left: 100px;
+        }
+         .divBox{
+            margin-top: 40px;
+        }
+         .upperBox{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .clear{
+            clear: both;
+        }
+        #leftText_short{
+            display:inline-block;
+            width: 40%;
+            float: left;
+        }
+        #rightText_short{
+            display:inline-block;
+            width: 40%;
+            float: right;
+        }
+        #leftText{
+            display:inline-block;
+            width: 40%;
+            float: left;
+        }
+        #rightText{
+            display:inline-block;
+            width: 40%;
+            float: right;
+        }
+
+
+        #leftText_slider{
+            width: 25%;
+            float: left;
+        }
+        #rightText_slider{
+            width: 25%;
+            float: right;
+        }
+
+
+        #wrap_slider{
+        float: left;
+        position: relative;
+        left: 50%;
+        }
+
+        #val01{
+            margin: auto;
+        }
+
+        #val02{
+           margin: auto;
+        }
+
+        .table{
+            text-align:center
+        }
+
+        td:nth-child(1) {
+          width: 25%;
+          }
+        td:nth-child(2) {
+            width: 50%;
+        }
+        td:nth-child(3) {
+          width: 25%;
+         }
+
+
+        .slider_table{
+            width: 100%;
+            position: relative;
+            left: 10%;
+        }
+
+        #sliderBox{
+            float: left;
+            width: 70%;
+            margin: 5px;
+        }
+        .clear{
+            clear: both;
+        }
+        input[type="range"].form-control::-webkit-slider-thumb {
+            visibility: hidden;
+        }
+        input[type="range"].form-control::-moz-range-thumb {
+            visibility: hidden;
+        }
+        input[type="range"].form-control::-ms-thumb {
+            visibility: hidden;
+        }
+        input[type="range"].active_slider::-webkit-slider-thumb {
+            visibility: visible;
+        }
+        input[type="range"].active_slider::-moz-range-thumb {
+            visibility: visible;
+        }
+        input[type="range"].active_slider::-ms-thumb {
+            visibility: visible;
+        }
+    </style>
+{% endblock %}

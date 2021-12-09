@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% load staticfiles %}
+
+{% block title %}
+Lotterien
+{% endblock %}
+
+{% block content %}
+<p>
+    In dieser Frage können Sie nun tatsächlich die Höhe der Auszahlung beeinflussen.
+</p>
+
+<p>
+    Bedenken Sie, dass, falls diese Frage zur Auszahlung ausgewählt wird,
+    ihre Wahl am Ende gespielt und der Gewinn an Sie ausgezahlt wird.
+
+    {%  formfield player.riskaversion%}
+</p>
+
+    {% next_button %}
+
+{% endblock %}

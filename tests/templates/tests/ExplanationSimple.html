@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Anleitung: Eine einfache Frage
+{% endblock %}
+
+{% block content %}
+
+    <p><b>Eine einfache Frage</b></p>
+    <p>
+        In Fragen dieser Art müssen Sie sich zwischen zwei Optionen entscheiden. Jede Option beschreibt unter welchen Umständen Sie die 10 Euro gewinnen.
+        Falls die von Ihnen gewählten Option am Ende nicht eintritt, erhalten Sie die 10 Euro nicht.
+    </p>
+
+    <p><b>Wann gewinne ich und wann nicht?</b></p>
+
+    <p>
+        Unten sehen Sie eine Beispielfrage. Es geht um das Ereignis ob ein blauer Ball gezogen wird oder nicht.
+    </p>
+
+    <hr>
+    <p><b> Beispiel: </b></p>
+
+   <img src="{% static "choice_example.png" %}" class="center"/>
+
+    <hr>
+
+    <p>
+        Wenn Sie die <b> erste Option </b> wählen ("10 Euro falls ein blauer Ball gezogen wird") erhalten Sie 10 Euro falls ein blauer Ball gezogen wird und nichts, falls ein roter Ball gezogen wird.
+    </p>
+
+    <p>
+        Wenn Sie die <b> zweite Option </b> wählen ("10 Euro falls ein roter Ball gezogen wird und Sie zusätzlich eine Zahl von 1 bis 43 ziehen.")
+        erhalten Sie 10 Euro falls ein roter Ball gezogen wird und Sie <b> zusätzlich </b> am Ende des Experiments eine Zahl von 1 bis 43 ziehen.
+        Falls ein blauer Ball gezogen wird oder Sie eine Zahl von 44 bis 100 ziehen, erhalten Sie nichts.
+    </p>
+
+    <hr>
+        <p> <b> Testfrage </b> </p>
+    <p>
+        Stellen Sie sich folgenden Situation vor:
+        Sie wählen die Option "10 Euro falls ein roter Ball gezogen wird und Sie zusätzlich eine Zahl von 1 bis 43 ziehen".
+        Stellen Sie sich weiterhin vor, dass ein roter Ball gezogen wird und Sie anschließend die Zahl 51 ziehen.
+    </p>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}
+

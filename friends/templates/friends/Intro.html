@@ -1,0 +1,55 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Erstes Spiel
+{% endblock %}
+
+{% block content %}
+
+    <p><b>Gewinne</b></p>
+    <p>
+        Sie erhalten 5 Euro für die Teilnahme an diesem Experiment.
+        Zusätzlich können Sie noch Geld gewinnen.
+        Im ersten Spiel können Sie 2 Euro gewinnen.
+        Ihre Antworten beinflussen <b> mit welcher Wahrscheinlichkeit </b> Sie den Geldbetrag gewinnen.
+    </p>
+
+    <hr>
+    <p><b> Punkte und die Gewinnwahrscheinlichkeit </b></p>
+    <p>
+        In der folgenden Frage können Sie Punkte erhalten. Die Punkte, die Sie in dieser Frage erhalten,
+        bestimmen die Wahrscheinlichkeit
+        mit der Sie die 2 Euro gewinnen.
+    </p>
+
+    <hr>
+    <p><b>Wie werden die Punkte in Gewinn umgerechnet?</b></p>
+    <p>
+        Jeder Punkt, den Sie erhalten,
+        erhöht Ihre Chancen den Geldbetrag zu gewinnen um 1%.
+    </p>
+    <p>
+        Dazu wird ein Teilnehmer nach der Frage gebeten eine Zahl blind aus einer Box zu ziehen.
+        Die Box enthält jede Zahl zwischen 1 und 100 genau einmal.
+        Ihre Punkte bestimmen für welche dieser Zahlen Sie den Geldbetrag gewinnen.
+        Wenn Sie mehr Punkte haben, als die gezogene Zahl, gewinnen Sie den zusätzlichen Geldbetrag.
+        Wenn Sie weniger Punkte haben, gewinnen Sie den zusätzlichen Geldbetrag nicht.
+    </p>
+
+    <p>
+        Wenn Sie also zum Beispiel 60 Punkte haben, gewinnen Sie die 2 Euro falls eine Zahl zwischen 1 und 60
+        gezogen wird.
+        Falls eine Zahl über 60 gezogen wird, erhalten Sie in dieser Runde kein zusätzliches Geld.
+    </p>
+    <p>
+        Wenn Sie also 60 Punkte haben, beträgt Ihre Chance die 2 Euro zu gewinnen 60%.
+        Wenn Sie 100 Punkte haben, bekommen Sie die 2 Euro sicher.
+        Wenn Sie 0 Punkte haben, werden Sie in dieser Runde sicher kein zusätzliches Geld gewinnen.
+    </p>
+
+
+    {% next_button %}
+
+{% endblock %}
+

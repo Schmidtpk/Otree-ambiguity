@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Punkteanzahl
+{% endblock %}
+
+{% block content %}
+
+<img src="/static/pointcloud225.jpeg" alt="Wenn Sie an dieser Stelle kein Feld mit schwarzen Punkten sehen, heben Sie bitte die Hand." width="450" height="450">
+ <hr>
+    <p>Wie hoch ist die Wahrscheinlichkeit <em>(in Prozent)</em>, dass die Anzahl der schwarzen Punkte kleiner oder gleich <b>{{ player.int1 }}</b> ist?
+    {%  formfield player.qsrcloudquestion1%}</p>
+    <p>Wie hoch ist die Wahrscheinlichkeit <em>(in Prozent)</em>, dass die Anzahl der schwarzen Punkte größer als <b>{{ player.int1 }}</b> aber kleiner oder gleich <b>{{ player.int2 }} </b> ist?
+        {%  formfield player.qsrcloudquestion2%}</p>
+    <p>Wie hoch ist die Wahrscheinlichkeit <em>(in Prozent)</em>, dass die Anzahl der schwarzen Punkte größer als <b>{{ player.int2 }}</b> aber kleiner oder gleich <b>{{ player.int3 }} </b> ist?
+        {%  formfield player.qsrcloudquestion3%}</p>
+     <p>Wie hoch ist die Wahrscheinlichkeit <em>(in Prozent)</em>, dass die Anzahl der schwarzen Punkte größer als <b>{{ player.int3 }}</b> ist?
+    {%  formfield player.qsrcloudquestion4%}</p>
+    <br /><br />
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Eine Frage
+{% endblock %}
+
+{% block content %}
+
+
+    <p>
+        In jeder Runde wird zunächst das Ereignis erklärt. Dann wird der zu gewinnende Geldbetrag genannt.
+        Anschließend wählen Sie, Ihre präferierte Art der Auszahlung in verschiedenen Situationen.
+        Dann werden wir das Ergebnis des unsicheren Ereignisses betrachten.
+        Eine dieser Fragen wird am Ende ihre Punkte und somit auch ihre Gewinnwahrscheinlichkeit bestimmen.
+    </p>
+
+    <hr>
+
+    <p>
+        Es gibt keine richtigen oder falschen Antworten, wir möchten ihre persönliche Einschätzung der Unsicherheit
+        erforschen.
+    </p>
+    {% next_button %}
+
+{% endblock %}

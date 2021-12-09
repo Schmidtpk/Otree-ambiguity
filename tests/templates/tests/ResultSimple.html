@@ -1,0 +1,39 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Testfragen: Eine einfache Frage
+{% endblock %}
+
+{% block content %}
+    <font color="grey">
+    <hr>
+    <p> <b> Testfrage </b> </p>
+    <p>
+        Stellen Sie sich folgenden Situation vor:
+        Sie wählen die Option "10 Euro falls ein roter Ball gezogen wird und Sie zusätzlich eine Zahl von 1 bis 43 ziehen".
+        Stellen Sie sich weiterhin vor, dass ein roter Ball gezogen wird und Sie anschließend die Zahl 51 ziehen.
+    </p>
+    </font>
+
+  <p>
+        <b>
+            Ihre Antwort ist {% if player.test_simple1 == "T" %} richtig. {% else %} falsch. {% endif %}
+        </b>
+        Da Sie eine Zahl gezogen haben, die nicht zwischen 1 und 43 liegt, erhalten Sie keine 10 Euro.
+    </p>
+
+    <hr>
+
+    <p>
+        <b>
+            Ihre Antwort ist {% if player.test_simple2 == "T" %} richtig. {% else %} falsch. {% endif %}
+        </b>
+        Wenn Sie die Zahl 40 ziehen, ist diese zwischen 1 und 43 und Sie erhalten 10 Euro, da auch ein roter Ball gezogen wurde.<br>
+        Wenn stattdessen ein blauer Ball gezogen wird, erhalten Sie nichts, da Sie mit der gewählten Option nur für rote Bälle gewinnen.
+    </p>
+
+    {% next_button %}
+
+{% endblock %}
+

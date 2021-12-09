@@ -1,0 +1,48 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% load staticfiles %}
+
+{% block title %}
+Allgemeine Fragen
+{% endblock %}
+
+{% block styles %}
+
+   <style type="text/css">
+    li label {
+        font-weight: normal;
+    }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+<b>Sie sind nun auf der letzten Experimentseite angekommen. Hier würden wir Sie bitten noch ein paar Angaben zu Ihrer Person zu machen.</b> <br /><br />
+
+       {%  formfield player.birthday%}
+       {%  formfield player.gender%}
+       {%  formfield player.moneyathand%}
+       {%  formfield player.profession %}
+        <hr>
+        <b style="color:red;">Falls Sie StudentIn sind:</b><br /><br />
+        {%  formfield player.fieldofstudy%}
+        <hr>
+
+        {% formfield player.comprehension%}
+
+        <hr>
+       {%  formfield player.probabilityexp1 %}
+       {%  formfield player.probabilityexp2 %}
+       {%  formfield player.probabilityexp3 %}
+       {%  formfield player.probabilityexp4 %}
+       {%  formfield player.probabilityexp5 %}
+
+
+
+<hr>
+<b>Klicken Sie nun bitte ein letzten Mal auf "Weiter", um zu erfahren, welche Frage für Sie zur Auszahlung ausgewählt wurde.</b> <br /><br />
+    {% next_button %}
+
+{% endblock %}
+
+

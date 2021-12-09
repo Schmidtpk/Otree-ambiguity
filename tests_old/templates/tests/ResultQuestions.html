@@ -1,0 +1,45 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Testfragen: Gewinne
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Stellen Sie sich folgenden Ausgang des Experiments vor: Sie haben drei Fragen beantwortet.
+        In der ersten Frage ging es um 10 Euro und Sie haben 50 Punkte erspielt.
+        In der zweiten Frage ging es um 20 Euro und Sie haben 60 Punkte erspielt.
+        In der dritten Frage ging es um 10 Euro und Sie haben 0 Punkte erspielt.
+    </p>
+
+    <p>
+        Stellen Sie sich außerdem vor, dass im Umschlag steht, dass die zweite Frage ausgewählt wurde.
+    </p>
+
+    <hr>
+
+    <p>
+        <b>
+            Ihre Antwort ist {% if player.test_questions1 == "T" %} richtig. {% else %} falsch. {% endif %}
+        </b>
+        Da die zweite Frage ausgewählt wurde, können Sie 20 Euro gewinnen.
+    </p>
+
+    <hr>
+
+
+    <p>
+        <b>
+            Ihre Antwort ist {% if player.test_questions2 == "T" %} richtig. {% else %} falsch. {% endif %}
+        </b>
+        Da die zweite Frage ausgewählt wurde, bestimmen nur die Ergebnisse der zweiten Frage ihre Auszahlung.
+        Alle anderen Fragen sind irrelevant.
+    </p>
+
+
+    {% next_button %}
+
+{% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <div id="titleText">
+        Das Experiment -  Runde {{player.topic_number}} von {{ player.topic_number_total }}:
+    </div>
+{% endblock %}
+
+{% block content %}
+<p>
+    {% if player.round_number == 1 %}
+        Bitte drücken Sie auf weiter und beginnen Sie das Experiment.
+        Ab jetzt bestimmen Ihre Entscheidungen Ihre Auszahlung!
+    {% else %}
+        {% if player.round_number|divisibleby:2 %}
+            Es geht weiter mit den Slider-Entscheidungen.
+        {% else %}
+            Es geht weiter mit dem nächsten Ereignis.
+        {% endif %}
+        Bedenken Sie, dass Ihre Entscheidungen Ihre Auszahlung beeinflussen.
+    {% endif %}
+</p>
+
+
+    {% next_button %}
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+<style>
+    #titleText{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+{% endblock %}

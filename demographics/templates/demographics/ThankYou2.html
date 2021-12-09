@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<p>
+    <b>Es wurde die Zahl
+    {{ draw }}
+    gezogen.
+    </b><br /><br />
+
+    Da Sie
+    {{ points_lot }} Punkte hatten, erhalten Sie
+    {% if wins %}
+        {{ money }} zusätzlich
+    {% else %}
+        keinen zusätzlichen Gewinn
+    {% endif %}.
+<br />
+</p>
+
+
+    {% next_button %}
+
+
+{% endblock %}

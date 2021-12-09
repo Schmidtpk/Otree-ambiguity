@@ -1,0 +1,225 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <div id="titleText">
+        {{ player.fun_title }}
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <p>
+        Sie können in dieser Runde <b>{{ player.tickets_prize_text }}</b> gewinnen.
+        Wird ein Slider am Ende des Experiments ausgewählt, erhöht jeder dort gewonnene Punkt Ihre Gewinnchance um 1%.
+    </p>
+    <p>
+        Bitte bewegen Sie die Slider und wählen Sie so für jede Quote ihre favorisierte Kombination an Gewinnchancen.
+        Je weiter links der Slider ist, desto mehr setzen Sie darauf, dass {{player.fun_etext}}.
+        Je weiter rechts der Slider ist, desto mehr setzen Sie darauf, dass {{player.fun_ctext}}.
+        Jeder Slider hat unterschiedliche Quoten, so dass Verschiebungen nach links oder rechts unterschiedliche
+        Veränderungen der Gewinnchancen implizieren.
+    </p>
+
+    <hr>
+
+    <div id="wrapper">
+    <div class="divBox">
+        <div id="leftText">
+            Falls
+            <b>
+                {{ player.fun_etext }},
+            </b>
+            erhalten Sie folgende Anzahl an Punkten:
+
+        </div>
+        <div id="rightText">
+            Falls
+            <b>
+                {{ player.fun_ctext }},
+            </b>
+             erhalten Sie folgende Anzahl an Punkten:
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+    <div class="rateBox">Quote {{nrate_slider0}}:{{rate_slider0}}</div>
+    <div class="divBox"> <div id="val01" class="valBox">- Punkte</div>   <div class="sliderBox">{% formfield player.val_slider0 %}</div> <div id="val02" class="valBox">- Punkte</div><div class="clear"></div></div>
+
+    <div class="rateBox">Quote {{nrate_slider1}}:{{rate_slider1}}</div>
+    <div class="divBox"> <div id="val11" class="valBox">- Punkte</div>   <div class="sliderBox">{% formfield player.val_slider1 %}</div> <div id="val12" class="valBox">- Punkte</div><div class="clear"></div></div>
+
+    <div class="rateBox">Quote {{nrate_slider2}}:{{rate_slider2}}</div>
+    <div class="divBox"> <div id="val21" class="valBox">- Punkte</div>   <div class="sliderBox">{% formfield player.val_slider2 %}</div> <div id="val22" class="valBox">- Punkte</div><div class="clear"></div></div>
+
+    <div class="rateBox">Quote {{nrate_slider3}}:{{rate_slider3}}</div>
+    <div class="divBox"> <div id="val31" class="valBox">- Punkte</div>   <div class="sliderBox">{% formfield player.val_slider3 %}</div> <div id="val32" class="valBox">- Punkte</div><div class="clear"></div></div>
+
+    <div class="rateBox">Quote {{nrate_slider4}}:{{rate_slider4}}</div>
+    <div class="divBox"> <div id="val41" class="valBox">- Punkte</div>   <div class="sliderBox">{% formfield player.val_slider4 %}</div> <div id="val42" class="valBox">- Punkte</div><div class="clear"></div></div>
+
+    <div class="rateBox">Quote {{nrate_slider5}}:{{rate_slider5}}</div>
+    <div class="divBox"> <div id="val51" class="valBox">- Punkte</div>   <div class="sliderBox">{% formfield player.val_slider5 %}</div> <div id="val52" class="valBox">- Punkte</div><div class="clear"></div></div>
+
+    <div class="rateBox">Quote {{nrate_slider6}}:{{rate_slider6}}</div>
+    <div class="divBox"> <div id="val61" class="valBox">- Punkte</div>   <div class="sliderBox">{% formfield player.val_slider6 %}</div> <div id="val62" class="valBox">- Punkte</div><div class="clear"></div></div>
+
+        <div class="rateBox">Quote {{nrate_slider7}}:{{rate_slider7}}</div>
+    <div class="divBox"> <div id="val71" class="valBox">- Punkte</div>   <div class="sliderBox">{% formfield player.val_slider7 %}</div> <div id="val72" class="valBox">- Punkte</div><div class="clear"></div></div>
+
+        <div class="rateBox">Quote {{nrate_slider8}}:{{rate_slider8}}</div>
+    <div class="divBox"> <div id="val81" class="valBox">- Punkte</div> <div class="sliderBox">{% formfield player.val_slider8 %}</div> <div id="val82" class="valBox">- Punkte</div><div class="clear"></div></div>
+
+
+    </div>
+    {% next_button %}
+
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    //Initializing slider rates
+    var rate0 = {{rate_slider0}};
+    var rate1 = {{rate_slider1}};
+    var rate2 = {{rate_slider2}};
+    var rate3 = {{rate_slider3}};
+    var rate4 = {{rate_slider4}};
+    var rate5 = {{rate_slider5}};
+    var rate6 = {{rate_slider6}};
+    var rate7 = {{rate_slider7}};
+    var rate8 = {{rate_slider8}};
+
+    console.log(rate0);
+
+
+    //Sliders
+    var slider0 = document.getElementById('id_val_slider0');
+    var slider1 = document.getElementById('id_val_slider1');
+    var slider2 = document.getElementById('id_val_slider2');
+    var slider3 = document.getElementById('id_val_slider3');
+    var slider4 = document.getElementById('id_val_slider4');
+    var slider5 = document.getElementById('id_val_slider5');
+    var slider6 = document.getElementById('id_val_slider6');
+    var slider7 = document.getElementById('id_val_slider7');
+    var slider8 = document.getElementById('id_val_slider8');
+
+    slider0.oninput = function(){
+        document.getElementById('val01').innerHTML = parseFloat((100-this.value)*(1-rate0/10)).toFixed(0)+" Punkte";
+        document.getElementById('val02').innerHTML = parseFloat((this.value)*rate0/10).toFixed(0)+" Punkte";
+        slider0.className = 'form-control active_slider';
+    }
+    slider1.oninput = function(){
+        document.getElementById('val11').innerHTML = parseFloat((100-this.value)*(1-rate1/10)).toFixed(0)+" Punkte";
+        document.getElementById('val12').innerHTML = parseFloat((this.value)*rate1/10).toFixed(0)+" Punkte";
+        slider1.className = 'form-control active_slider';
+    }
+    slider2.oninput = function(){
+        document.getElementById('val21').innerHTML = parseFloat((100-this.value)*(1-rate2/10)).toFixed(0)+" Punkte";
+        document.getElementById('val22').innerHTML = parseFloat((this.value)*rate2/10).toFixed(0)+" Punkte";
+        slider2.className = 'form-control active_slider';
+    }
+    slider3.oninput = function(){
+        document.getElementById('val31').innerHTML = parseFloat((100-this.value)*(1-rate3/10)).toFixed(0)+" Punkte";
+        document.getElementById('val32').innerHTML = parseFloat((this.value)*rate3/10).toFixed(0)+" Punkte";
+        slider3.className = 'form-control active_slider';
+    }
+    slider4.oninput = function(){
+        document.getElementById('val41').innerHTML = parseFloat((100-this.value)*(1-rate4/10)).toFixed(0)+" Punkte";
+        document.getElementById('val42').innerHTML = parseFloat((this.value)*rate4/10).toFixed(0)+" Punkte";
+        slider4.className = 'form-control active_slider';
+    }
+    slider5.oninput = function(){
+        document.getElementById('val51').innerHTML = parseFloat((100-this.value)*(1-rate5/10)).toFixed(0)+" Punkte";
+        document.getElementById('val52').innerHTML = parseFloat((this.value)*rate5/10).toFixed(0)+" Punkte";
+        slider5.className = 'form-control active_slider';
+    }
+     slider6.oninput = function(){
+        document.getElementById('val61').innerHTML = parseFloat((100-this.value)*(1-rate6/10)).toFixed(0)+" Punkte";
+        document.getElementById('val62').innerHTML = parseFloat((this.value)*rate6/10).toFixed(0)+" Punkte";
+        slider6.className = 'form-control active_slider';
+    }
+     slider7.oninput = function(){
+        document.getElementById('val71').innerHTML = parseFloat((100-this.value)*(1-rate7/10)).toFixed(0)+" Punkte";
+        document.getElementById('val72').innerHTML = parseFloat((this.value)*rate7/10).toFixed(0)+" Punkte";
+        slider7.className = 'form-control active_slider';
+    }
+     slider8.oninput = function(){
+        document.getElementById('val81').innerHTML = parseFloat((100-this.value)*(1-rate8/10)).toFixed(0)+" Punkte";
+        document.getElementById('val82').innerHTML = parseFloat((this.value)*rate8/10).toFixed(0)+" Punkte";
+        slider8.className = 'form-control active_slider';
+    }
+</script>
+{% endblock %}
+
+
+{% block app_styles %}
+<style>
+    #titleText{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #wrapper{
+        text-align: center;
+    }
+    .divBox{
+        margin-bottom: 5px;
+    }
+    .rateBox{
+        display: inline-block;
+    }
+    .valBox{
+        margin: 5px;
+        float: left;
+        font-size: 1.2rem;
+        width: 10%;
+        position: relative;
+        left: 4%;
+    }
+
+
+
+    .sliderBox{
+        float: left;
+        width: 70%;
+        margin: 5px;
+        position: relative;
+        left: 4%;
+    }
+    .clear{
+        clear: both;
+    }
+    .input-group, input.form-control, select.form-control, textarea.form-control{
+        width: 100%;
+        max-width: 100%;
+    }
+    #leftText{
+        width: 25%;
+        float: left;
+    }
+    #rightText{
+        width: 25%;
+        float: right;
+    }
+    input[type="range"].form-control::-webkit-slider-thumb {
+        visibility: hidden;
+    }
+    input[type="range"].form-control::-moz-range-thumb {
+        visibility: hidden;
+    }
+    input[type="range"].form-control::-ms-thumb {
+        visibility: hidden;
+    }
+    input[type="range"].active_slider::-webkit-slider-thumb {
+        visibility: visible;
+    }
+    input[type="range"].active_slider::-moz-range-thumb {
+        visibility: visible;
+    }
+    input[type="range"].active_slider::-ms-thumb {
+        visibility: visible;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Testfragen: Ein Beispiel-Experiment
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Stellen Sie sich folgenden Situation vor:
+        In der ausgewählten Frage geht es um 10 Euro und Sie haben gewählt, dass Sie 21 Punkte erhalten,
+        falls der Dax steigt und
+        21 Punkte falls der DAX nicht steigt.
+    </p>
+
+
+    <p>
+        <img src="{% static 'mixing.png' %}"/>
+    </p>
+
+   <p>
+        Stellen Sie sich weiterhin vor, dass der DAX nicht gestiegen ist und Sie am Ende des Experiments die
+        Zahl 20 ziehen.
+   </p>
+
+
+    <hr>
+
+    <p>
+        <b>
+            Ihre Antwort ist {% if player.test_all3 == "T" %} richtig. {% else %} falsch. {% endif %}
+        </b>
+        Da Sie so gewählt haben, dass Sie unabhängig vom DAX immer 21 Punkte erhalten, haben Sie 21 Punkte und
+        gewinnen die 10 Euro, falls Sie eine Zahl von 1 bis 21 ziehen.
+        Die gezogene Zahl 20 ist kleiner als ihre 21 Punkte.
+        Sie erhalten also die 10 Euro als Gewinn.
+    </p>
+
+    <hr>
+
+
+    <p>
+        <b>
+            Ihre Antwort ist {% if player.test_all4 == "T" %} richtig. {% else %} falsch. {% endif %}
+        </b>
+        Falls der DAX steigt, erhalten Sie unverändert 21 Punkte und gewinnen somit die 10 Euro.
+        Falls Sie am Ende die Zahl 80 ziehen, ist diese Zahl größer als ihre Punktzahl 21 und
+        Sie erhalten keinen Gewinn.
+    </p>
+
+
+    {% next_button %}
+
+{% endblock %}
+

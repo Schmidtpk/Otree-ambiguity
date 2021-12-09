@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ergebnis
+{% endblock %}
+
+{% block content %}
+
+
+    <p>
+        Ich habe 10 zufällige Bälle mit zurücklegen gezogen. Davon waren
+        {{ player.group.red_draws }} rot.
+    </p>
+
+    {% next_button %}
+{% endblock %}
+
+

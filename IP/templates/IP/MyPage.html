@@ -1,0 +1,43 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Wieviele Punkte?
+{% endblock %}
+
+{% block content %}
+
+<img src="/static/pointcloud225.jpeg" alt="Wenn Sie an dieser Stelle kein Feld mit schwarzen Punkten sehen, heben Sie bitte die Hand." width="450" height="450">
+
+<p>
+    In dieser Runde bitten wir Sie zu schätzen, wieviele Punkte in obigen Bild angzeigt werden.
+    Sie werden gebeten zu raten mit welcher Wahrscheinlichkeit die Anzahl an Punkten
+    <ul>
+    <li>unter {{player.int1}} liegt</li>
+    <li>zwischen {{player.int1}} und {{player.int2}} liegt</li>
+    <li>zwischen {{player.int2}} und {{player.int3}} liegt</li>
+    <li>über {{player.int3}} liegt.</li>
+    </ul>
+</p>
+
+<p>
+    Bitte geben Sie die Wahrscheinlichkeiten in Prozent an. Das heißt Sie müssen eine Zahl zwischen 0 und 100 angeben. Die Gesamtsumme der vier Wahrscheinlichkeiten muss 100 ergeben.
+</p>
+
+<p>
+    Falls diese Aufgabe am Ende zur Auszahlung ausgewählt wird, bestimmt sich ihre Gewinnzahl wie folgt: Seien p1, p2, p3, p4 die Wahrscheinlichkeiten, die Sie angegeben haben.
+    Die richtige Antwort liegt in einem der vier Intervalle und die Wahrscheinlichkeit, die Sie dafür angeben haben sei p. Dann gewinnen Sie für alle Zahlen von 1 bis
+    p - (p1²+p2²+p3²+p4²).
+</p>
+
+<p>
+    Die Formel wurde so gewählt, dass es in ihrem Interesse liegt eine möglichst gute Schätzung abzugeben. Je mehr Prozent Sie im richtigen Interval angeben, desto höher Ihre Gewinnchance.
+</p>
+
+<p>
+    Drücken Sie nun weiter um ihre Schätzung abzugeben.
+</p>
+
+    {% next_button %}
+
+{% endblock %}

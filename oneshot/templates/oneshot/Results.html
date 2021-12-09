@@ -1,0 +1,34 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ergebnis
+{% endblock %}
+
+{% block content %}
+
+
+    <p>
+        Es wurde ein
+        {% if player.group.eventTRUE %}
+            roter
+        {% else %}
+            blauer
+        {% endif %}
+        Ball gezogen. Das heißt, du erhältst
+        {{ player.compute_points }}
+        Punkte.
+    </p>
+
+    <p>
+    {% if player.compute_points > 0 %}
+        Du erhältst also 2 Euro, falls eine Zahl von 1 bis {{ player.compute_points }} gezogen wird.
+    {% else %}
+        Du erhältst also keine 2 Euro in diesem Spiel.
+    {% endif %}
+     </p>
+
+    {% next_button %}
+{% endblock %}
+
+

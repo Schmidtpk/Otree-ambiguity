@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Das zweite Spiel
+{% endblock %}
+
+{% block content %}
+
+    <p><b>Die Geldbeträge</b></p>
+    <p>
+        Der zu gewinnende Geldbetrag variiert zufällig zwischen 5 und 10 Euro
+        und kann nicht von Ihnen beinflusst werden.
+        Ihre Antworten beinflussen <b> mit welcher Wahrscheinlichkeit </b> Sie den Geldbetrag gewinnen.
+    </p>
+
+    <hr>
+    <p><b>Eine zufällige Frage bestimmt die Punkte</b></p>
+    <p>
+        Wie im ersten Spiel werden Sie Wetten auf bestimmte Ereignisse abgeben können,
+        z.B. darauf ob ein roter Ball gezogen wird. Zu jedem Thema wird es mehrere Fragen geben.
+        Eine der Fragen wurde per Zufall ausgewählt.
+        Die ausgewählte Frage befindet sich in einem Umschlag und wird von einem Teilnehmer
+        am Ende des Experiments vorgelesen.
+        Die Punkte, die Sie in dieser Frage erhalten, bestimmen die Wahrscheinlichkeit
+        mit der Sie den Geldbetrag am Ende des Experiments gewinnen.
+        Sie erfahren erst am Ende, welche Frage ihre Punkte bestimmt.
+    </p>
+
+    <hr>
+    <p><b>Wie werden die Punkte in Gewinn umgerechnet?</b></p>
+    <p>
+        Wie zuvor, erhöht jeder Punkt, den Sie in der ausgewählten Frage erhalten haben,
+        Ihre Chancen den Geldbetrag zu gewinnen um 1%.
+    </p>
+    <p>
+        Dazu wird am <b> Ende des Experiments </b> eine Zahl blind aus einer Box gezogen.
+        Die Box enthält Zahlen zwischen 1 und 100 genau einmal.
+        Ihre Punkte bestimmen für welche dieser Zahlen Sie den Geldbetrag gewinnen.
+        Wenn Sie mehr Punkte haben, als die gezogene Zahl, gewinnen Sie den zusätzlichen Geldbetrag.
+        Wenn Sie weniger Punkte haben, gewinnen Sie den zusätzlichen Geldbetrag nicht.
+    </p>
+
+    {% next_button %}
+
+{% endblock %}
+

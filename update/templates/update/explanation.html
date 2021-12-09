@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <div id="titleText">
+        {{ player.fun_title }}
+    </div>
+{% endblock %}
+
+{% block content %}
+<p>
+    Ich habe soeben 30 Bälle in eine Urne gelegt. Die Bälle sind blau und rot.
+    Die Anzahl an blauen und roten Bällen ist geheim.
+    Wir betrachten wieviele rote Bälle in der Urne sind.
+</p>
+<p>
+    In dieser Runde wird folgendes gefragt:
+    <b>
+        {{ player.fun_explanation }}
+    </b>
+</p>
+
+
+    {% next_button %}
+
+{% endblock %}
+
+
+
+{% block app_styles %}
+<style>
+    #titleText{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+{% endblock %}
